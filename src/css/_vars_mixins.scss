@@ -1,0 +1,59 @@
+// COLOR VARS
+$color-botticelli : #CBD7E2;
+$color-gallery: #EBEBEB;
+$color-mirage : #16222D;
+$color-pewter : #95A5A5;
+$color-rhino : #273D52;
+$color-mexican-red : #9F2929;
+$color-royal-blue : #2F7AEB;
+$special-font : 'Source Sans Pro', sans-serif;
+
+// BUTTON STYLES MIXIN
+@mixin controls-buttons-text-styles {
+  font-size: 14px;
+  font-family:$special-font;
+}
+@mixin controls-buttons-size {
+  height: 32px;
+}
+
+@mixin regular-button-styles {
+  @include controls-buttons-text-styles();
+  @include controls-buttons-size();
+  text-transform: uppercase;
+	padding: 3px 14px;
+  border-radius: 0;
+}
+@mixin regular-button-colors {
+  background-color: transparent;
+  border-color: $color-mirage;
+  color: $color-mirage;
+}
+@mixin primary-button-colors {
+  background-color: $color-royal-blue;
+  border-color: $color-royal-blue;
+  color: white;
+}; 
+@mixin inverse-button-colors {
+  background-color: $color-mirage;
+  border-color: $color-mirage;
+  color: white;
+}
+@mixin white-button-colors {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+@mixin regular-button {
+  @include regular-button-styles();
+  @include regular-button-colors();
+}
+@mixin inverse-button {
+  @include regular-button-styles();
+  @include inverse-button-colors();
+}
+@mixin white-button {
+  @include regular-button-styles();
+  @include white-button-colors();
+}

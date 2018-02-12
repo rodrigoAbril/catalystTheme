@@ -1,0 +1,23 @@
+@import "vars_mixins";
+
+.portlet-decorate .portlet-content {
+	background: #FFF;
+	border: 2px solid $color-mirage;
+}
+
+
+.portlet-barebone .portlet-content {
+	padding: 0;
+}
+
+// portlet overrides
+.portlet-title-text {
+	font-family:'Source Sans Pro', sans-serif;
+	font-size: 26px;
+	color: $color-rhino;
+	margin-bottom: 0.6em;
+	margin-top: 0.5em;
+}
+.portlet-content {
+	padding: 16px;
+}

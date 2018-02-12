@@ -1,0 +1,262 @@
+@import "vars_mixins";
+// ↑↑↑ vars_mixins colors area commented below in case you need to move this styles to the portlet
+// $color-botticelli: #CBD7E2;
+// $color-gallery: #EBEBEB;
+// $color-mirage: #16222D;
+// $color-pewter: #95A5A5;
+// $color-rhino: #273D52;
+// $color-mexican-red: #9F2929;
+// $color-royal-blue : #2F7AEB;
+
+// TRANSACTION WEB PORTLET
+// BASE STYLES 
+.search_and_transactions{
+  padding: 16px;
+  margin: 0 -16px;
+  background-color: $color-gallery;
+  
+  .transaction-numbers {
+    text-transform: uppercase;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    
+    div.title{
+      font-weight: 600;
+      color: $color-mirage;
+    }
+  
+    .number{
+      color: $color-mexican-red;
+      font-weight: 600;
+    }
+  
+  }
+  
+  .searchForm {
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0,1,0,1);
+    overflow: hidden;
+    margin-top: 22px;
+  } 
+
+  &.inverse-styles {
+    background-color: $color-mirage;
+    
+    .searchForm {
+      max-height: 9999px;
+      transition: max-height 0.3s cubic-bezier(1,0,1,0);
+    }
+
+    .transaction-numbers > div:first-child,
+    > div:first-child .line-block,
+    > div:first-child div.title {
+      border-color: white!important;
+    }
+
+    div.title,
+    .subtitle { 
+      color: $color-mexican-red;
+    }
+
+    .number {
+      color: white;
+    }
+  }
+}
+
+
+
+
+
+
+@media only screen and (max-width: 424px)  {
+  .transaction-numbers{
+      display: flex;
+      margin-bottom: 30px;
+  }
+  .transaction-numbers > div{
+      flex: 1;
+      padding-right: 10px
+  }
+  .transaction-numbers > div:first-child{
+      border-right: 2px solid $color-mexican-red;
+  }
+  .transaction-numbers > div:last-child{
+      padding-left: 10px;
+      padding-right: 0px
+  }
+
+  .transaction-numbers .line-block{
+      display: flex;
+  }
+  .transaction-numbers .line-block .number{
+      flex: 1;
+      text-align: right;
+  }
+
+}
+
+@media only screen and (min-width: 425px) and (max-width: 767px) {
+  .transaction-numbers{
+      display: inline-flex;
+      margin-bottom: 30px;
+  }
+  .transaction-numbers > div:first-child{
+      border-right: 2px solid $color-mexican-red;
+      padding-right: 20px;
+  }
+
+  .transaction-numbers > div:last-child{
+      padding-left: 20px;
+      padding-right: 0px
+  }
+
+  .transaction-numbers .line-block{
+      display: flex;
+  }
+  .transaction-numbers .line-block .number{
+      flex: 1;
+      text-align: right;
+      padding: 0 0px 0 10px;
+  }
+}
+
+@media only screen and (min-width: 768px)  {
+  // TABLE LAYOUT STYLES 
+  .transaction-numbers {
+    display: table;
+    float: right;
+    
+    > div {
+      display: table-row;
+    }
+
+    > div:first-child .line-block,
+    > div:first-child div.title {    
+      border-bottom: 2px solid $color-mexican-red;
+    }
+
+    .line-block,
+    div.title {
+      display: table-cell;
+      padding: 4px 4px 4px 10px;
+    }
+
+    div.title{
+      text-align: right;
+    }
+
+    .number{
+      padding-left: 10px;
+      text-align: left;
+      display: inline-block;
+      width: 60px;
+    }
+  }
+  .search_and_transactions{ 
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    } 
+  }
+
+  form.searchForm {
+    fieldset{
+      > div {
+        &:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        > .form-group {
+          float: left;
+          width: 160px;
+          margin-right: 16px;
+
+          &:last-child{
+            width: 483px;
+            clear: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+// form sizing
+
+
+.small-input,
+.med-input,
+.big-input,
+.form-group {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+  
+@media only screen and (min-width: 540px) and (max-width: 929px) {
+  .small-input,
+  .med-input,
+  .big-input {
+    margin-right: 10px ;
+  }
+
+  .flex-line,
+  .flex-line .flex-inputs {
+    display: flex;
+  }
+
+  .flex-line .flex-inputs {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .textboxlistentry-holder{
+    flex: 1;
+  }
+
+  .flex-line .flex-inputs .form-group{
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  .flex-line .flex-inputs .form-group:first-child,
+  .flex-line .flex-inputs .form-group:last-child{
+      margin-left: 0px;
+      margin-right: 0px;
+  }
+
+}
+
+@media only screen and (min-width: 930px) { 
+  .flex-line{
+    display: flex;
+  }
+  
+  .small-input,
+  .med-input,
+  .big-input {
+    margin-right: 10px ;
+  }
+
+  .small-input {
+    width: 249px; 
+  }
+
+  .med-input,
+  .med-input.extra .textboxlistentry-holder{
+      width: 512px;
+  }
+
+  .med-input.extra {
+      width: 100%;
+  }
+
+  .med-input .form-group-inline{
+      width: 100%;
+  }
+}
+
